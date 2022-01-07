@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item active"><a href="#">My Courses</a></li>
+    <li class="breadcrumb-item" aria-current="page">Kel. IPA</li>
+  </ol>
+</nav>
+<div class="content-wrapper">
+  <div *ngFor="let item of kelompokList" class="content-group">    
+    <img src="../../../../assets/images/book.png" />
+    <label>{{item}}</label>
+  </div>
+</div>

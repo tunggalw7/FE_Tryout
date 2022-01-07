@@ -1,0 +1,63 @@
+
+h1{        
+    margin-top: 0;
+}
+.content-wrapper{
+    border: solid 1px #eee;
+    padding: 2em;    
+    .action-wrapper{        
+        background-color: #eee;
+        padding: 1em;
+        .action-header{
+            .total{                
+                font-weight: bold;
+                font-size: 20px;
+                margin: 0 10px;
+            }
+        }
+    }
+    .soal-wrapper{        
+        background-color: #faf8dc;
+        padding: 1em;
+        .answer-wrapper{            
+            p{
+                margin: 1.5em 0 0;
+            }
+        }
+    }
+    .navigation-wrapper{
+        .navigation-header{
+            font-size: 18px;
+            margin-bottom: 20px;        
+        }
+        .navigation-box{
+            display: flex;
+            margin-bottom: 20px;    
+            .card-box{
+                width: 30px;
+                height: 35px;
+                font-weight: bold;
+                margin-right: 10px;
+                // background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, grey 50%);
+                border-radius: 5px;
+                border: solid 1px #000;
+                text-align: center;
+                cursor: pointer;
+                .box-start{
+                    // background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, grey 50%)
+                }
+            }
+        }
+        .navigation-attempt{            
+            margin-bottom: 20px;    
+        }
+    }
+    .button-around{
+        display: flex;
+        justify-content: space-between;
+        margin: 2em 0;
+    }
+    .link-soal {
+        font-weight: bold;
+    }
+}

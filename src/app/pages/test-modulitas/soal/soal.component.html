@@ -1,0 +1,99 @@
+<nav aria-label="breadcrumb">
+    <h1>TO-3 KELOMPOK SAINTEK</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="#">My Courses</a></li>
+        <li class="breadcrumb-item" aria-current="page">Kel. IPA</li>
+        <li class="breadcrumb-item" aria-current="page">General</li>
+        <li class="breadcrumb-item" aria-current="page">PENALARAN UMUM</li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-xl-9">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-xl-2">
+                  <div class="action-wrapper">
+                      <div class="action-header">
+                          <label>Question</label>
+                          <span class="total">{{soalJson.length}}</span>
+                      </div>
+                      <div class="action-body">
+                          <label>Not yet answered</label>
+                          <label>Marked out of 1.00</label>
+                      </div>
+                      <div class="action-footer">
+                          <label>Flag question</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-xl-10">
+                  <div class="soal-wrapper">
+                      <div class="question-wrapper">
+                          {{soalJson[currentNumber].no}} {{soalJson[currentNumber].question}}
+                      </div>
+                      <div class="answer-wrapper">
+                          <p>Select one:</p>
+                          <nb-radio-group [(ngModel)]="selectedOption">
+                            <nb-radio *ngFor="let item of soalJson[currentNumber].answer" [value]="item.value">{{item.value}}. {{item.text}}</nb-radio>
+                          </nb-radio-group>
+                      </div>
+                  </div>          
+                </div>
+            </div>
+            <div class="button-around">                    
+                <button (click)="onPrevPage()" *ngIf="(currentNumber + 1) > 1" nbButton hero status="basic">Previous page</button>
+                <div></div>
+                <button (click)="onNextPage()" *ngIf="(currentNumber + 1) < soalJson.length" nbButton hero status="danger">Next page</button>
+            </div>
+            <div class="row">
+                <div class="col-xl-4"></div>
+                <div class="col-xl-4 text-center">
+                    <nb-select placeholder="Jump to ..." 
+                        [(ngModel)]="jumpTo"
+                        (ngModelChange)="onChangeJumpTo()">
+                        <nb-option *ngFor="let item of soalJson" [value]="item.no">{{item.no}}</nb-option>
+                    </nb-select>
+                </div>
+                <div class="col-xl-4">
+                    <div class="link-soal text-danger">
+                        PEMAHAMAN BACAAN DAN MENULIS
+                        <nb-icon icon="arrow-right"></nb-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="navigation-wrapper">
+                        <div class="navigation-header">
+                            Quiz navigation
+                        </div>
+                        <div class="navigation-box">
+                            <div class="card-box">
+                                <div class="box-start">
+                                    <span>i</span>
+                                </div>
+                            </div>
+                            <div class="card-box" *ngFor="let item of soalJson" (click)="onNavigation(item.no)">
+                                <span>{{item.no}}</span>
+                            </div>
+                        </div>
+                        <div class="navigation-attempt">
+                            <div class="text-danger">
+                                Finish attempt ...
+                            </div>
+                        </div>
+                        <div class="navigation-timer">
+                            Time left : <b>0:14::17</b>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
