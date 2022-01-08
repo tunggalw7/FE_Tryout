@@ -6,7 +6,6 @@
     </button>
   </div>
   <div class="modal-body">
-    {{test}}
       <form [formGroup]="AddEditForm">
         <div class="form-control-group">
           <label class="label">
@@ -78,19 +77,8 @@
               [id]="type"
               formControlName="question"
               intialValue=""
-              [init]="{
-                  skin_url: '/assets/tinymce/skins/lightgray',
-                  content_css: '/assets/tinymce/skins/lightgray/skin.min.css',
-                  external_plugins: {'directionality':'/assets/tinymce/plugins/directionality/plugin.js'},
-                  height: 300,
-                  toolbar:'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent rtl ltr'
-              }"
+              [init]="tinymceInit"
           ></editor>
-          <quill-editor
-          [modules]="modules"
-          (ngModelChange)="this.debouncedUpdate.next($event)">
-           
-          </quill-editor>
           <ng-container *ngIf="submitted && f.question.errors">
             <p class="caption status-danger" *ngIf="f.question.errors.required">
               Please enter question.

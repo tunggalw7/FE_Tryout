@@ -28,7 +28,6 @@ import { SoalComponent } from './soal.component';
 import { ListSoalComponent } from './list-soal/list-soal.component';
 import { AddEditSoalComponent } from './add-edit-soal/add-edit-soal.component';
 import { DeleteSoalComponent } from './delete-soal/delete-soal.component';
-import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   imports: [
@@ -56,7 +55,6 @@ import { QuillModule } from 'ngx-quill';
     NgxSkeletonLoaderModule,
     NgxDatatableModule,
     EditorModule,
-    QuillModule.forRoot()
   ],
   declarations: [
     SoalComponent,

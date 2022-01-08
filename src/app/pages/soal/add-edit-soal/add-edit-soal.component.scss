@@ -9,3 +9,11 @@
         margin-left: 10px;
     }
 }
+::ng-deep nb-radio{
+    .text{
+        display: flex;
+    }
+}
+::ng-deep textarea{
+    width: 33em;
+}

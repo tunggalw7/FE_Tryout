@@ -3,10 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbDialogRef } from '@nebular/theme';
 import { NbToastrService } from '@nebular/theme';
 import { MasterService } from "../../../_services/master.service";
-import * as QuillNamespace from 'quill';
-let Quill: any = QuillNamespace;
-import ImageResize from 'quill-image-resize-module';
-Quill.register('modules/imageResize', ImageResize);
 
 @Component({
   selector: 'add-edit-soal',
@@ -30,24 +26,7 @@ export class AddEditSoalComponent implements OnDestroy, OnInit {
   listKelompok = [{"value":"TPS","text":"TPS"},{"value":"Saintek","text":"Saintek"},{"value":"Soshum","text":"Soshum"}];
   listMatpel = [{"text" : "PU", "value" : "PU"},{"text" : "PPU", "value" : "PPU"},{"text" : "PBM", "value" : "PBM"},{"text" : "MTK", "value" : "MTK"},
   {"text" : "FIS", "value" : "FIS"},{"text" : "GEO", "value" : "GEO"},{"text" : "PPU", "value" : "EKO"}];
-  modules = {
-    toolbar: [
-    ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-    [{ 'header': 1 }, { 'header': 2 }], // custom button values
-    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-    [{ 'script': 'sub' }, { 'script': 'super' }], // superscript/subscript
-    [{ 'indent': '-1' }, { 'indent': '+1' }], // outdent/indent
-    [{ 'direction': 'rtl' }], // text direction
-    [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
-    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
-    [{ 'font': [] }],
-    [{ 'align': [] }],
-    ['clean'], // remove formatting button
-    ['link', 'image'], // link and image, video
-    ],
-    imageResize: true // for image resize
-    };
+
   constructor(
     protected ref: NbDialogRef<AddEditSoalComponent>,
     private formBuilder: FormBuilder,
@@ -142,5 +121,52 @@ export class AddEditSoalComponent implements OnDestroy, OnInit {
       '',
       messages,
       { position, status });
+  }
+  tinymceInit = {
+    skin_url: '/assets/tinymce/skins/lightgray',
+    content_css: '/assets/tinymce/skins/lightgray/skin.min.css',
+    external_plugins: {'image':'/assets/tinymce/plugins/image/plugin.js'},
+    height: 300,
+    plugins: 'image',
+    image_title: true,
+    automatic_uploads: true,
+    // toolbar: 'undo redo | link image | code',
+    toolbar:'undo redo | styleselect | bold italic strikethrough forecolor backcolor | link image | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent rtl ltr | removeformat',
+
+    image_advtab : true,
+    file_picker_types: 'image',
+    file_picker_callback : function(cb, value, meta) {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/*');
+  
+      // Note: In modern browsers input[type="file"] is functional without 
+      // even adding it to the DOM, but that might not be the case in some older
+      // or quirky browsers like IE, so you might want to add it to the DOM
+      // just in case, and visually hide it. And do not forget do remove it
+      // once you do not need it anymore.
+  
+      input.onchange = function() {
+        var file = input.files[0];
+  
+        var reader = new FileReader();
+        reader.onload = function () {
+          // Note: Now we need to register the blob in TinyMCEs image blob
+          // registry. In the next release this part hopefully won't be
+          // necessary, as we are looking to handle it internally.
+          var id = 'blobid' + (new Date()).getTime();
+          var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+          var base64 = reader.result.toString().split(',')[1];
+          var blobInfo = blobCache.create(id, file, base64);
+          blobCache.add(blobInfo);
+  
+          // call the callback and populate the Title field with the file name
+          cb(blobInfo.blobUri(), { title: file.name });
+        };
+        reader.readAsDataURL(file);
+      };
+  
+      input.click();
+    }
   }
 }
