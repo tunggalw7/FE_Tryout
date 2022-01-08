@@ -23,6 +23,11 @@ const routes: Routes = [{
         .then(m => m.SiswaModule),
     },
     {
+      path: 'soal',
+      loadChildren: () => import('./soal/soal.module')
+        .then(m => m.SoalModule),
+    },
+    {
       path: 'universitas',
       loadChildren: () => import('./universitas/universitas.module')
         .then(m => m.UniversitasModule),

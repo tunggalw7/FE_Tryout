@@ -17,8 +17,8 @@ export class PagesComponent implements OnInit {
   listRole: any = [];
   currentProfileAccess: any = [];
   menu = MENU_ITEMS;
-  filteredMenuRoles: any = [];
-  isLoadData: Boolean = true;
+  filteredMenuRoles: any = MENU_ITEMS;
+  isLoadData: Boolean = false;
   loadingMenu = [{ title: "Loading Menu . . ." }];
   baseService = "core/users/profile";
 
@@ -28,7 +28,7 @@ export class PagesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getProfileInfo();
+    // this.getProfileInfo();
   }
 
   getProfileInfo() {

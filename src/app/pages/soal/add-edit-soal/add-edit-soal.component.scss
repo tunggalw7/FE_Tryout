@@ -1,0 +1,11 @@
+.answer-wrapper{
+    display: flex;
+    align-items: center;
+    span{        
+        font-weight: bold;
+        width: 50px;
+    }
+    button{
+        margin-left: 10px;
+    }
+}
