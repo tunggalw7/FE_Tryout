@@ -28,6 +28,7 @@ import { PanduanComponent } from './panduan/panduan.component';
 import { TestModulitasComponent } from './test-modulitas.component';
 import { KelompokComponent } from './kelompok/kelompok.component';
 import { TestModulitasRoutingModule } from './test-modulitas-routing.module';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { TestModulitasRoutingModule } from './test-modulitas-routing.module';
   ],
   declarations: [
     TestModulitasComponent,
+    CourseComponent,
     KelompokComponent,
     PanduanComponent,
     SoalComponent

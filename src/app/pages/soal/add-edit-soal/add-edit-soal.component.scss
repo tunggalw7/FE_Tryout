@@ -1,6 +1,9 @@
 .answer-wrapper{
     display: flex;
     align-items: center;
+    .col-6{
+        margin-bottom: 1em;
+    }
     span{        
         font-weight: bold;
         width: 50px;
@@ -16,4 +19,7 @@
 }
 ::ng-deep textarea{
     width: 33em;
+}
+.radio-btn{
+    display: flex;
 }

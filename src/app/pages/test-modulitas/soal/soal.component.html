@@ -30,7 +30,7 @@
                 <div class="col-xl-10">
                   <div class="soal-wrapper">
                       <div class="question-wrapper">
-                          {{soalJson[currentNumber].no}} {{soalJson[currentNumber].question}}
+                        <span>{{soalJson[currentNumber].no}}.</span><div [innerHTML]="soalJson[currentNumber].question"></div>
                       </div>
                       <div class="answer-wrapper">
                           <p>Select one:</p>

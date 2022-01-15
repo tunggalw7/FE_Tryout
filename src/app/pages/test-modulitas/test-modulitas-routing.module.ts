@@ -4,6 +4,7 @@ import { TestModulitasComponent } from './test-modulitas.component';
 import { KelompokComponent } from './kelompok/kelompok.component';
 import { PanduanComponent } from './panduan/panduan.component';
 import { SoalComponent } from './soal/soal.component';
+import { CourseComponent } from './course/course.component';
 
 const routes: Routes = [{
   path: '',
@@ -11,6 +12,10 @@ const routes: Routes = [{
   children: [
     {
       path: '',
+      component: CourseComponent,
+    },
+    {
+      path: 'kelompok',
       component: KelompokComponent,
     },
     {

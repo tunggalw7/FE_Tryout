@@ -27,22 +27,18 @@ body {
 }
 
 .owl-carousel .owl-item img {
-    height: 200px;
+    height: 130px;
     object-fit: cover;
-    border-radius: 6px
+    border-radius: 50%;
 }
 
 .owl-carousel .owl-item .card .name {
-    position: absolute;
-    bottom: -20px;
-    left: 33%;
-    color: #101c81;
+    color: #000;
     font-size: 1.1rem;
     font-weight: 600;
-    background-color: aquamarine;
+    background-color: #ffe9f0;
     padding: 0.3rem 0.4rem;
     border-radius: 5px;
-    box-shadow: 2px 3px 15px #3c405a
 }
 
 .owl-carousel .owl-item .card {

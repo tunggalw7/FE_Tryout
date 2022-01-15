@@ -22,6 +22,13 @@ export class AddEditSoalComponent implements OnDestroy, OnInit {
   type: string = 'Add';
   action : string = 'Save';
   selectedOption: string;
+  answer = [
+    {"value" : "a" , "text" : "Gunung Agung mengeluarkan lava yang berbahaya"},
+    {"value" : "b" , "text" : "Gunung Agung mengeluarkan lava yang berbahaya"},
+    {"value" : "c" , "text" : "Gunung Agung mengeluarkan lava yang berbahaya"},
+    {"value" : "d" , "text" : "Gunung Agung mengeluarkan lava yang berbahaya"},
+    {"value" : "e" , "text" : "Gunung Agung mengeluarkan lava yang berbahaya"},
+  ]
   test = ["a","b"];
   listKelompok = [{"value":"TPS","text":"TPS"},{"value":"Saintek","text":"Saintek"},{"value":"Soshum","text":"Soshum"}];
   listMatpel = [{"text" : "PU", "value" : "PU"},{"text" : "PPU", "value" : "PPU"},{"text" : "PBM", "value" : "PBM"},{"text" : "MTK", "value" : "MTK"},
@@ -62,16 +69,17 @@ export class AddEditSoalComponent implements OnDestroy, OnInit {
   ngOnDestroy() { }
  
   onSubmit(formData) {
+    debugger
     this.submitted = true;
     this.submitLoading = true;
-
+    let a = this.answer;
     if (this.AddEditForm.invalid) {
       this.submitLoading = false;
       return;    
     } 
     
-    if (this.dataForm) this.onEditForm(formData);
-    else this.onCreateForm(formData);    
+    // if (this.dataForm) this.onEditForm(formData);
+    // else this.onCreateForm(formData);    
   }
 
   onCreateForm(dataPost){

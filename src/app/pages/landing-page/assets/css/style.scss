@@ -487,6 +487,7 @@ section {
   margin-top: 1.2em;
   .module{  
     display: grid;
+    cursor: pointer;
     .icon{      
       background: linear-gradient(94.82deg, #FFD6E4 7.51%, rgba(255, 214, 228, 0.54) 92.25%);
       border-radius: 8px;
@@ -518,7 +519,8 @@ section {
     &.feature{
       background: rgba(244, 149, 18, 0.6);
       border-radius: 25px;
-      padding: 2em;
+      padding: 1em;
+      width: 15em;
       .icon-feature{
         border-radius: 8px;
         height: 100%;
@@ -538,13 +540,39 @@ section {
         font-weight: bold;
         line-height: 35px;
         font-size: 24px;
-        width: 6em;
+        // width: 6em;
         text-align: center;
         margin-top: 20px;
       }
     }
+
   }
-  
+  .checkout-wrapper{
+    display: grid;
+    align-items: center;
+    .checkout{
+      background: #FAFF00;
+      box-shadow: 0px 0px 4px 5px #CEAA7A;
+      border-radius: 11px;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 39px;
+      text-align: center;      
+      color: #F70059;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    .time{
+      color: #F60059;       
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 42px;
+      text-align: center;
+    }
+  }
 }
 /*--------------------------------------------------------------
 # Breadcrumbs

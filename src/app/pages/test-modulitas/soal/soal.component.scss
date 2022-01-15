@@ -25,6 +25,12 @@ h1{
             }
         }
     }
+    .question-wrapper{
+        display: flex;
+        span{
+            margin-right: 5px;
+        }
+    }
     .navigation-wrapper{
         .navigation-header{
             font-size: 18px;
